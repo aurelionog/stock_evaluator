@@ -17,6 +17,7 @@ def main():
 
         stop_loss_percent = st.sidebar.number_input(
             "Stop Loss Percentage:", min_value=0.0, max_value=100.0, value=10.0)
+        st.write("Desired stop loss percentage:", stop_loss_percent)
 
         st.divider()
 
