@@ -12,21 +12,25 @@ def main():
 
         uploaded_file = st.file_uploader(
             "Upload Stock and Inital Price list:", type="csv")
-        st.sidebar.success("File uploaded successfully!")
+        
         st.divider()
 
-        stop_loss_percent =  st.sidebar.number_input("Stop Loss Percentage:", min_value=0.0, max_value=100.0, value=10.0)
+        stop_loss_percent = st.sidebar.number_input(
+            "Stop Loss Percentage:", min_value=0.0, max_value=100.0, value=10.0)
 
         st.divider()
 
-        profit_target_percent = st.sidebar.number_input("Profit Target Percentage:", min_value=0.0, max_value=100.0, value=15.0)
+        profit_target_percent = st.sidebar.number_input(
+            "Profit Target Percentage:", min_value=0.0, max_value=100.0, value=15.0)
         st.write("Desired profit target percentage:", profit_target_percent)
 
         st.divider()
         with open(f"{os.getcwd()}/stock_prices.csv", "rb") as file:
-            st.download_button("Download Sample file",data=file, file_name="sample_stock_list.csv", mime="text/csv")
+            st.download_button("Download Sample file", data=file,
+                               file_name="sample_stock_list.csv", mime="text/csv")
 
     if uploaded_file is not None:
+        st.sidebar.success("File uploaded successfully!")
         dataframe = pd.read_csv(uploaded_file)
 
         analysis_df = analyze_stocks_from_csv(
