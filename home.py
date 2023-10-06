@@ -32,10 +32,9 @@ def main():
 
     if uploaded_file is not None:
         st.sidebar.success("File uploaded successfully!")
-        dataframe = pd.read_csv(uploaded_file)
-
+        # dataframe = pd.read_csv(uploaded_file)
         analysis_df = analyze_stocks_from_csv(
-            dataframe, stop_loss_percent, profit_target_percent)
+            uploaded_file, stop_loss_percent, profit_target_percent)
 
         st.title('Result:')
         analysis_df

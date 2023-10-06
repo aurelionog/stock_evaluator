@@ -94,6 +94,7 @@ def analyze_stock(ticker_symbol, initial_price, historical_data, stop_loss_perce
 # Function to analyze stocks from a CSV file
 def analyze_stocks_from_csv(csv_file_path, stop_loss_percent, profit_target_percent):
     stock_df = pd.read_csv(csv_file_path)
+
     analysis_results = []
 
     for index, row in stock_df.iterrows():
