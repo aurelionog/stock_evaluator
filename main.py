@@ -12,4 +12,4 @@ def main(csv_file_path):
     print(analysis_df)
 
 if __name__ == "__main__":
-    main()
+    main(CSV_PATH)

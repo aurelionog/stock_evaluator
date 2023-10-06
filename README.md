@@ -1,32 +1,129 @@
-Stock Analysis and Recommendation Script
-----------------------------------------
 
-This Python script analyzes stock data, calculates moving averages, and provides recommendations based on various criteria. It also includes options for setting stop-loss and profit-taking targets.
+# Stock Analysis Tool
 
-Usage:
-1. Prepare a CSV file with the following columns: 'Symbol' and 'Initial_Price'.
-2. Adjust the 'csv_file_path', 'stop_loss_percent', and 'profit_target_percent' variables in the main function as needed.
-3. Run the script to analyze the stocks and view the recommendations.
+This Python tool is designed to help users analyze stock data and make investment decisions based on various factors such as moving averages, dividends, and more.
 
-Functions:
-- fetch_historical_data(ticker_symbol): Fetches historical stock data for a given ticker symbol using the Yahoo Finance API.
-- calculate_moving_averages(data): Calculates 50-day and 200-day moving averages for stock data.
-- calculate_volatility(data): Calculates annualized volatility based on daily returns.
-- analyze_stock(ticker_symbol, initial_price, historical_data, stop_loss_percent, profit_target_percent): Analyzes a stock and provides recommendations, including stop-loss and profit-taking prices.
-- analyze_stocks_from_csv(csv_file_path, stop_loss_percent, profit_target_percent): Analyzes multiple stocks from a CSV file and returns the results as a DataFrame.
+## Features
 
-Parameters:
-- ticker_symbol: Ticker symbol of the stock to be analyzed.
-- initial_price: Initial purchase price of the stock.
-- historical_data: DataFrame containing historical stock data.
-- stop_loss_percent: Desired stop-loss percentage.
-- profit_target_percent: Desired profit-taking percentage.
+- Retrieve historical stock data from Yahoo Finance.
 
-Returns:
-- DataFrame containing analysis results for each stock.
+- Calculate moving averages (50-day and 200-day).
 
-Example:
-- To analyze stocks from a CSV file, modify the 'csv_file_path', 'stop_loss_percent', and 'profit_target_percent' variables in the main function and run the script.
+- Analyze stock recommendations based on moving averages and dividend data.
 
-Author:
-Aurelio Nogueira - aurelionog@gmail.com
+- Determine whether to Buy, Sell, or Hold a stock.
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Python 3.6 or higher installed.
+
+- Required Python packages installed (`yfinance`, `pandas`, `numpy`, `pytest`, `coverage`).
+
+## Installation
+
+1\. Clone the repository:
+
+```shell
+
+   git clone https://github.com/yourusername/stock-analysis-tool.git
+
+```
+
+2\. Change into the project directory:
+
+```shell
+
+   cd stock-analysis-tool
+
+```
+
+3\. Install the required Python packages:
+
+```shell
+
+   pip install -r requirements.txt
+
+```
+
+## Usage
+
+### Analyze Stocks from a CSV File
+
+To analyze stocks from a CSV file, follow these steps:
+
+1\. Create a CSV file with the following columns: `Symbol` and `Initial_Price`. Add the stock symbols and their initial prices for analysis.
+
+2\. Run the analysis script:
+``` shell
+
+   python stock_analysis.py -f path/to/your/csv_file.csv -s 10 -p 15
+
+```
+Options:
+
+``` shell
+   - `-f` or `--file`: Specify the path to your CSV file.
+
+   - `-s` or `--stop-loss`: Set the stop-loss percentage.
+
+   - `-p` or `--profit-target`: Set the profit target percentage.
+
+```
+
+### Running Tests
+
+To run unit tests using pytest, execute the following command:
+
+```shell
+
+pytest test_stock_analysis.py
+
+```
+
+To check code coverage using `coverage.py`, use the following commands:
+
+```shell
+
+coverage run -m pytest test_stock_analysis.py
+
+coverage report -m
+
+```
+
+### Running Integration Tests
+
+To run the integration test for the stock analysis workflow, execute the following command:
+
+```shell
+
+python test_stock_analysis_integration.py
+
+```
+
+## Contributing
+
+Contributions are welcome! Please follow these guidelines:
+
+1\. Fork the repository.
+
+2\. Create a new branch for your feature or bug fix.
+
+3\. Make your changes and add tests if applicable.
+
+4\. Ensure that all tests pass.
+
+5\. Create a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Thanks to [Yahoo Finance](https://finance.yahoo.com/) for providing stock data.
+
+## Contact
+
+If you have any questions or feedback, feel free to contact [Aurelio Nogueira](mailto:aurelionog@gmail.com).
